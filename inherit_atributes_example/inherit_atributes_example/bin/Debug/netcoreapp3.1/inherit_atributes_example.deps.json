@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "inherit_atributes_example/1.0.0": {
+        "dependencies": {
+          "Fluent.Net": "1.0.31"
+        },
+        "runtime": {
+          "inherit_atributes_example.dll": {}
+        }
+      },
+      "Fluent.Net/1.0.31": {
+        "runtime": {
+          "lib/netstandard2.0/Fluent.Net.dll": {
+            "assemblyVersion": "1.0.31.0",
+            "fileVersion": "1.0.31.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "inherit_atributes_example/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Fluent.Net/1.0.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xKxEihF0dv7lxZ/HHEuJnShEgLFreJAA++KLoymcOEflz0JRQmank6HZ/EnRAjiSxzVGfP/bSORzv9Zv5gWyVw==",
+      "path": "fluent.net/1.0.31",
+      "hashPath": "fluent.net.1.0.31.nupkg.sha512"
+    }
+  }
+}
