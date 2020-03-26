@@ -31,7 +31,7 @@ namespace inherit_atributes_example.Modelos
 
         public virtual string Respirar()
         {
-            return "Animal que respira";
+            return "Animal que respira y laguna cosa más";
         }
 
     }
