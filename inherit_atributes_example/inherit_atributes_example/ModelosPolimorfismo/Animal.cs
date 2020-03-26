@@ -7,7 +7,7 @@ namespace inherit_atributes_example.Modelos
     class Animal
     {
         public string Tipo {get; set;}
-        public string Raza { get; set; }
+        protected string Raza { get; set; }
 
         public Animal (string tipo, string raza)
         {
@@ -15,7 +15,24 @@ namespace inherit_atributes_example.Modelos
             Raza = raza;
         }
 
-        public void Moverse() { }
+        protected static string CambiarTipo(string tipo)
+        {
+            if (tipo == "ballena")
+            {
+                tipo = "pez";
+            }
+            return tipo;
+        }
+
+        protected virtual string Moverse() 
+        {
+            return "me estoy moviendo";
+        }
+
+        public virtual string Respirar()
+        {
+            return "Animal que respira";
+        }
 
     }
 }

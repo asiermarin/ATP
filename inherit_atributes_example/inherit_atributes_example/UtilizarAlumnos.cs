@@ -26,12 +26,12 @@ namespace inherit_atributes_example
 
         public void CrearAlumno()
         {
-            List<int> listaNum;
+            List<int> listaNum = null;                                                  // asignar un valor siempre en un método.
             var alumno = new Alumno("2*B", "Matematicas", null , null, 19, listaNum);
             _listaAlum.Add(alumno);
 
             Console.WriteLine(_listaAlum.Count);
-            Console.WriteLine(alumno.Apellido + " " + alumno.Nombre + " "+ alumno.Edad); //edad igual a 21
+            Console.WriteLine(alumno.Apellido + " " + alumno.Nombre + " "+ alumno.Edad +" "+alumno._listaNum.Count + " numeros asignados"); //edad igual a 21
         }
     }
 }

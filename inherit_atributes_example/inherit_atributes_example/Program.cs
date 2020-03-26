@@ -11,7 +11,7 @@ namespace inherit_atributes_example
             var obj = UtilizarAlumnos.CrearInstanciaCrearAlumnoSiNoExiste();
             obj.CrearAlumno();
 
-
+            UtilizarAnimales.CrearInstanciaCrearAlumnoSiNoExiste();
         }
     }
 }

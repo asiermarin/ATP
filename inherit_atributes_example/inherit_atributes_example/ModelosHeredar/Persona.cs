@@ -35,7 +35,12 @@ namespace inherit_atributes_example.Modelos
 
         protected static List<int> CrearLista(List<int> numeros)
         {
-            return numeros = new List<int>();
+            numeros = new List<int>();
+            int numero = 2;
+            int numero2 = 3;
+            numeros.Add(numero);
+            numeros.Add(numero2);
+            return numeros;
         }
     }
 }

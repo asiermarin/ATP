@@ -11,3 +11,4 @@ C:\Users\Industria 4.0\Documents\ATP\inherit_atributes_example\inherit_atributes
 C:\Users\Industria 4.0\Documents\ATP\inherit_atributes_example\inherit_atributes_example\obj\Debug\netcoreapp3.1\inherit_atributes_example.csproj.CopyComplete
 C:\Users\Industria 4.0\Documents\ATP\inherit_atributes_example\inherit_atributes_example\obj\Debug\netcoreapp3.1\inherit_atributes_example.dll
 C:\Users\Industria 4.0\Documents\ATP\inherit_atributes_example\inherit_atributes_example\obj\Debug\netcoreapp3.1\inherit_atributes_example.pdb
+C:\Users\Industria 4.0\Documents\ATP\inherit_atributes_example\inherit_atributes_example\bin\Debug\netcoreapp3.1\FluentValidation.dll

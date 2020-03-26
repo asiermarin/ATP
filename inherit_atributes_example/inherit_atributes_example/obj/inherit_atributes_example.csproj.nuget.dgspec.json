@@ -44,6 +44,10 @@
             "Fluent.Net": {
               "target": "Package",
               "version": "[1.0.31, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[8.6.1, )"
             }
           },
           "imports": [

@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "inherit_atributes_example/1.0.0": {
         "dependencies": {
-          "Fluent.Net": "1.0.31"
+          "Fluent.Net": "1.0.31",
+          "FluentValidation": "8.6.1"
         },
         "runtime": {
           "inherit_atributes_example.dll": {}
@@ -21,7 +22,19 @@
             "fileVersion": "1.0.31.0"
           }
         }
-      }
+      },
+      "FluentValidation/8.6.1": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "4.4.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.6.1.0"
+          }
+        }
+      },
+      "System.ComponentModel.Annotations/4.4.1": {}
     }
   },
   "libraries": {
@@ -36,6 +49,20 @@
       "sha512": "sha512-xKxEihF0dv7lxZ/HHEuJnShEgLFreJAA++KLoymcOEflz0JRQmank6HZ/EnRAjiSxzVGfP/bSORzv9Zv5gWyVw==",
       "path": "fluent.net/1.0.31",
       "hashPath": "fluent.net.1.0.31.nupkg.sha512"
+    },
+    "FluentValidation/8.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g0xw/YCVgJ1IYpBgKF9iuci/Arf6Dsq9H/WeeT9zaBpjrEA+Cr2GjWXHu1F0DKqVzp4J4hta4gGrRt6H4aESqQ==",
+      "path": "fluentvalidation/8.6.1",
+      "hashPath": "fluentvalidation.8.6.1.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/4.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ToiYqSCioqhtspq2O/jYKtyTC/T0uwWHBTYlzCi6PRbSSHArN1IaRWeHffDamvms5sye5FDUWCfNZgubQpNRsA==",
+      "path": "system.componentmodel.annotations/4.4.1",
+      "hashPath": "system.componentmodel.annotations.4.4.1.nupkg.sha512"
     }
   }
 }
