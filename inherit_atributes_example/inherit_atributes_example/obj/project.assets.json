@@ -160,23 +160,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Industria 4.0\\.nuget\\packages\\": {},
+    "C:\\Users\\asierm\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Industria 4.0\\Documents\\ATP\\inherit_atributes_example\\inherit_atributes_example\\inherit_atributes_example.csproj",
+      "projectUniqueName": "C:\\Users\\asierm\\source\\repos\\ATP\\inherit_atributes_example\\inherit_atributes_example\\inherit_atributes_example.csproj",
       "projectName": "inherit_atributes_example",
-      "projectPath": "C:\\Users\\Industria 4.0\\Documents\\ATP\\inherit_atributes_example\\inherit_atributes_example\\inherit_atributes_example.csproj",
-      "packagesPath": "C:\\Users\\Industria 4.0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Industria 4.0\\Documents\\ATP\\inherit_atributes_example\\inherit_atributes_example\\obj\\",
+      "projectPath": "C:\\Users\\asierm\\source\\repos\\ATP\\inherit_atributes_example\\inherit_atributes_example\\inherit_atributes_example.csproj",
+      "packagesPath": "C:\\Users\\asierm\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\asierm\\source\\repos\\ATP\\inherit_atributes_example\\inherit_atributes_example\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Industria 4.0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\asierm\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -184,7 +184,9 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://pkgs.dev.azure.com/lanteksms/_packaging/lantek360/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://dotnet.myget.org/F/aspnetcore-ci-dev/api/v3/index.json": {},
+        "https://lanteksms.pkgs.visualstudio.com/_packaging/lantek360/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -224,7 +226,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
