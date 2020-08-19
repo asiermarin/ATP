@@ -1,0 +1,62 @@
+### Return abreviado
+
+private _provider;
+
+Forma larga:
+
+public string SomethingWithString(string oneString)
+{
+    return _provider.OneMethodWithString(oneString);
+}
+
+Forma abreviada:
+
+public string SomethingWithString(string oneString) =>
+    _provider.OneMethodWithString(oneString);
+
+### Get y set personalizado
+
+public string ConnectionString
+        {
+            get { return connectionString ?? ConnectionStringFromEnv; }
+            set { connectionString = value; }
+        }
+
+El operdor ?? evalua si el operando izquierdo (connectionString) es null.
+ - Si connectionString != null devuelve ese mismo valor.
+ - Sí connectionString == null devuelve ConnectionStringFromEnv
+
+Sería algo como:
+
+if (connectionString != null)
+{
+    return connectionString;
+}
+else if(connectionString == null)
+{
+    return ConnectionStringFromEnv;
+}
+
+Nota: Sí connectionString no es null no evaluará el operando derecho (ConnectionStringFromEnv).
+
+a ?? b ?? c
+d ??= e ??= f
+
+Se evalúa como:
+
+a ?? (b ?? c)
+d ??= (e ??= f)
+
+### Métodos con argumentos personalizados
+
+De primeras algún argumento debe ser null de entrada para que sea válido. O en un estado determinado como queramos sí es booleano.
+
+public void SomeMethod(string argument1, string argument2 = null, bool boolArguent = false)
+{
+    // Do something with arguments
+}
+
+### SingleOrDefault()
+
+Retorna un elemento sólo o el predetermiando (cual es?). Para objetos list o DbSet entre otros.
+
