@@ -112,3 +112,15 @@ List<string> lstNew = lstTest.GetRange(0, 3);
 ```
 
 En éste caso copiando los primeros 3 elementos.
+
+### Nombres de funciones compuestos
+
+El nombre de una función debe indicar que hace y devuelve:
+
+```
+    public void Authenticate_WhenVerificationHeaderIsFail_ShouldReturnFail()
+    {
+        Assert.IsFalse(something);
+        Assert.IsNotNull(somethingElse);
+    }
+```
