@@ -124,3 +124,23 @@ El nombre de una función debe indicar que hace y devuelve:
         Assert.IsNotNull(somethingElse);
     }
 ```
+### Definición de string inicial
+
+Si se crea un string pero no se sabe definir un valor en un principio:
+
+```
+string os = string.Empty;
+```
+### Variables de tipo bool?
+
+Para untilizar un atributo de este tipo:
+
+```
+bool? IsTrue {get; set;}
+
+if (obj.IsTrue.HasValue)
+{
+
+}
+```
+Hay que utilizar el atributo HasValue para utilizarlo como bool.
