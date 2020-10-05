@@ -144,3 +144,43 @@ if (obj.IsTrue.HasValue)
 }
 ```
 Hay que utilizar el atributo HasValue para utilizarlo como bool.
+
+### Uso de constantes de manera inteligente
+
+```
+public static class ClaseConstantes1
+    {
+        public const string ESTO_ES_UNA_CONSTANTE = "CertificateHeaders";
+
+        internal const string OTRA_CONSTANTE = "algo";
+
+        public static class ClaseConstanteInterior
+        {
+            public const string CONSTANTE_INTERIOR = "algo2";
+        }
+    }
+```
+### Extensiones
+
+´´´
+public static class UnaClaseExtensions
+    {
+        public static ClaseModelo MetodoUnaClase(this UnaClase unaClase)
+        {
+            return new ClaseModelo
+            {
+                // Paso atributos
+            };
+        }
+    }
+´´´
+
+Que conseguimos con esto? Ahora la clase UnaClase tiene un metodo como extensión (estáticas)
+para una configuración generarica de una clase por ejemplo.
+
+La clave es "this UnaClase unaClase" ya que es la manera en codigo de definir el metodo 
+cuando haya una instacia de esa misma clase. Al ser estatico se puede llamar a la función
+sin necesidad de instacia de la clase "UnaClaseExtensions".
+
+var x = new UnaClase();
+x.MedotoUnaClase();
