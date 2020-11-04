@@ -182,5 +182,5 @@ La clave es "this UnaClase unaClase" ya que es la manera en codigo de definir el
 cuando haya una instacia de esa misma clase. Al ser estatico se puede llamar a la función
 sin necesidad de instacia de la clase "UnaClaseExtensions".
 
-var x = new UnaClase();
+var x = new UnaClase(); # Revisar, no puede haber un new con una clase estatica
 x.MedotoUnaClase();
