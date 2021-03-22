@@ -1,4 +1,4 @@
-﻿namespace Lantek360.Sherlock.Monitoring.Server.Core.Models
+﻿namespace CachingSimpleExample.Models
 {
     public class CrudResult<T> : BaseCrudResult
     {

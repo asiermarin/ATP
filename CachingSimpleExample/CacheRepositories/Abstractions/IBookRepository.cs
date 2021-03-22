@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CachingSimpleExample.CacheRepositories.Abstractions
+﻿namespace CachingSimpleExample.CacheRepositories.Abstractions
 {
+    using CachingSimpleExample.Models;
+    using System.Collections.Generic;
+
     public interface IBookRepository
     {
+        CrudResult<List<Book>> GetAllExistingBook();
+
+        CrudResult<Book> GetExistingBook(string id);
+
+        CrudResult InsertOrUpdateExistingBook(Book book);
+
+        CrudResult RemoveExistingBook(Book book);
     }
 }

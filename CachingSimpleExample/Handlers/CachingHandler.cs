@@ -1,7 +1,7 @@
 ﻿namespace CachingSimpleExample.Handlers
 {
     using System;
-
+    using System.Collections.Generic;
     using CachingSimpleExample.Handlers.Abstractions;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
@@ -10,17 +10,30 @@
         where T : class
     {
         public IMemoryCache memoryCache;
+        public List<string> keysList;
         private readonly ILogger logger;
 
         public CachingHandler(
             IMemoryCache memoryCache,
-            ILogger logger)
+            ILoggerFactory loggerFactory)
         {
             this.memoryCache = memoryCache;
-            this.logger = logger;
+            this.keysList = new List<string>();
+            this.logger = loggerFactory.CreateLogger(typeof(CachingHandler<T>).Name);
         }
 
-        public T GetItemFromCacheAsync(string itemKey, T entity)
+        public List<T> GetAllFromCache()
+        {
+            var entitiesList = new List<T>();
+            foreach (var key in this.keysList)
+            {
+                entitiesList.Add(GetFromCache(key, null));
+            }
+
+            return entitiesList;
+        }
+
+        public T GetFromCache(string itemKey, T entity)
         {
             try
             {
@@ -33,11 +46,12 @@
             }
         }
 
-        public bool RemoveItemFromCache(string itemKey, T entity)
+        public bool RemoveFromCache(string itemKey, T entity)
         {
             try
             {
                 this.memoryCache.Remove(itemKey);
+                this.keysList.Remove(itemKey);
                 var result = this.memoryCache.TryGetValue<T>(itemKey, out entity);
                 return result;
             }
@@ -48,11 +62,12 @@
             }
         }
 
-        public bool SetItemInCache(string itemKey, T entity)
+        public bool SetInCache(string itemKey, T entity)
         {
             try
             {
                 var result = this.memoryCache.Set<T>(itemKey, entity);
+                this.keysList.Add(itemKey);
                 return result != null ? true : false;
             }
             catch (Exception ex)
@@ -62,11 +77,12 @@
             }
         }
 
-        public bool SetItemInWithOptions(string itemKey, T entity, MemoryCacheEntryOptions options)
+        public bool SetInCacheWithOptions(string itemKey, T entity, MemoryCacheEntryOptions options)
         {
             try
             {
                 var result = this.memoryCache.Set<T>(itemKey, entity, options);
+                this.keysList.Add(itemKey);
                 return result != null ? true : false;
             }
             catch (Exception ex)

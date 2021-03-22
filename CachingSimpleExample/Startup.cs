@@ -1,3 +1,8 @@
+using CachingSimpleExample.CacheRepositories;
+using CachingSimpleExample.CacheRepositories.Abstractions;
+using CachingSimpleExample.Handlers;
+using CachingSimpleExample.Handlers.Abstractions;
+using CachingSimpleExample.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +21,11 @@ namespace CachingSimpleExample
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddMemoryCache();
+
+            // services.AddScoped(new CachingHandler<Book>());
+            services.AddScoped<IBookRepository, BookRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
