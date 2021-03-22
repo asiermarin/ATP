@@ -101,6 +101,5 @@
 
         private CrudResult RemoveBook(Book book)
             => RemoveFromCache(book.Id, book) ? CrudResult.Success() : CrudResult.Error();
-
     }
 }

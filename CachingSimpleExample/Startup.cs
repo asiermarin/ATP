@@ -25,7 +25,7 @@ namespace CachingSimpleExample
             services.AddMemoryCache();
 
             // services.AddScoped(new CachingHandler<Book>());
-            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddSingleton<IBookRepository, BookRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +40,7 @@ namespace CachingSimpleExample
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }

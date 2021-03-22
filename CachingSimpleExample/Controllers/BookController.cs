@@ -30,7 +30,7 @@
         }
 
         [HttpGet]
-        [Route("/v1.0/books")]
+        [Route("/v1.0/book")]
         public IActionResult GetBook([FromQuery] string id)
         {
             var result = this.bookRepository.GetExistingBook(id);
@@ -43,12 +43,13 @@
             {
                 return BadRequest();
             }
-        }
+            }
 
         [HttpPost]
-        [Route("/v1.0/books")]
-        public IActionResult CreateOrUpdateBook([FromBody]Book book)
+        [Route("/v1.0/createbook")]
+        public IActionResult PostBook([FromBody] Book modelBook)
         {
+            var book = MapBook(modelBook);
             var result = this.bookRepository.InsertOrUpdateExistingBook(book);
 
             if (result.IsSuccess)
@@ -62,8 +63,8 @@
         }
 
         [HttpGet]
-        [Route("/v1.0/books")]
-        public IActionResult RemoveBook([FromBody] Book book)
+        [Route("/v1.0/removebook")]
+        public IActionResult DeleteBook([FromBody] Book book)
         {
             var result = this.bookRepository.InsertOrUpdateExistingBook(book);
 
@@ -75,6 +76,16 @@
             {
                 return BadRequest();
             }
+        }
+
+        private Book MapBook(Book modelBook)
+        {
+            return new Book
+            {
+                Id = modelBook.Id,
+                Isbn = modelBook.Isbn,
+                Pages = modelBook.Pages
+            };
         }
     }
 }
