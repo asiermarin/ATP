@@ -1,4 +1,4 @@
-﻿namespace CachingSimpleExample.Handlers.Abstractions
+﻿namespace NCacheExample.Handlers.Abstractions
 {
     using Microsoft.Extensions.Caching.Memory;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     {
         List<T> GetAllFromCache();
 
-        T GetFromCache(string itemKey);
+        T GetFromCache(string itemKey, T entity);
 
         bool RemoveFromCache(string itemKey, T entity);
 

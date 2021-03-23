@@ -1,10 +1,10 @@
-﻿namespace CachingSimpleExample.CacheRepositories
+﻿namespace NCacheExample.CacheRepositories
 {
-    using CachingSimpleExample.CacheRepositories.Abstractions;
-    using CachingSimpleExample.Handlers;
-    using CachingSimpleExample.Models;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
+    using NCacheExample.CacheRepositories.Abstractions;
+    using NCacheExample.Handlers;
+    using NCacheExample.Models;
     using System.Collections.Generic;
 
     public class BookRepository : CachingHandler<Book>, IBookRepository
@@ -30,8 +30,15 @@
 
             if (result.IsSuccess)
             {
-                // RemoveBook(result.Value);
-                return AddBook(book);
+                var removeResult = RemoveExistingBook(book);
+                if (removeResult.IsSuccess)
+                {
+                     return AddBook(book);
+                }
+                else
+                {
+                    return CrudResult.Error();
+                }
             }
             else if (result.IsNotFound)
             {
@@ -43,9 +50,9 @@
             }
         }
 
-        public CrudResult RemoveExistingBook(string id)
+        public CrudResult RemoveExistingBook(Book book)
         {
-            var result = GetExistingBook(id);
+            var result = GetExistingBook(book.Id);
 
             if (result.IsSuccess)
             {
@@ -63,7 +70,7 @@
 
         public CrudResult<Book> GetExistingBook(string id)
         {
-            var exitingBook = GetFromCache(id);
+            var exitingBook = GetFromCache(id, null);
 
             if (exitingBook != null)
             {

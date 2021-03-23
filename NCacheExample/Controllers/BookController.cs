@@ -1,8 +1,8 @@
-﻿namespace CachingSimpleExample.Controllers
+﻿namespace NCacheExample.Controllers
 {
-    using CachingSimpleExample.CacheRepositories.Abstractions;
-    using CachingSimpleExample.Models;
     using Microsoft.AspNetCore.Mvc;
+    using NCacheExample.CacheRepositories.Abstractions;
+    using NCacheExample.Models;
 
     public class BookController : ControllerBase
     {
@@ -62,11 +62,11 @@
             }
         }
 
-        [HttpDelete]
+        [HttpGet]
         [Route("/v1.0/removebook")]
-        public IActionResult DeleteBook([FromQuery] string id)
+        public IActionResult DeleteBook([FromBody] Book book)
         {
-            var result = this.bookRepository.RemoveExistingBook(id);
+            var result = this.bookRepository.InsertOrUpdateExistingBook(book);
 
             if (result.IsSuccess)
             {
@@ -84,7 +84,7 @@
             {
                 Id = modelBook.Id,
                 Isbn = modelBook.Isbn,
-                Pages = modelBook.Pages,
+                Pages = modelBook.Pages
             };
         }
     }

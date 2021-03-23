@@ -1,10 +1,10 @@
-﻿namespace CachingSimpleExample.Handlers
+﻿namespace NCacheExample.Handlers
 {
     using System;
     using System.Collections.Generic;
-    using CachingSimpleExample.Handlers.Abstractions;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.Logging;
+    using NCacheExample.Handlers.Abstractions;
 
     public class CachingHandler<T> : ICaching<T>
         where T : class
@@ -27,13 +27,13 @@
             var entitiesList = new List<T>();
             foreach (var key in this.keysList)
             {
-                entitiesList.Add(GetFromCache(key));
+                entitiesList.Add(GetFromCache(key, null));
             }
 
             return entitiesList;
         }
 
-        public T GetFromCache(string itemKey)
+        public T GetFromCache(string itemKey, T entity)
         {
             try
             {
@@ -53,7 +53,7 @@
                 this.memoryCache.Remove(itemKey);
                 this.keysList.Remove(itemKey);
                 var result = this.memoryCache.TryGetValue<T>(itemKey, out entity);
-                return result == true ? false : true;
+                return result;
             }
             catch (Exception ex)
             {
@@ -61,8 +61,6 @@
                 return false;
             }
         }
-
-        // Set a new one or update existing 
 
         public bool SetInCache(string itemKey, T entity)
         {

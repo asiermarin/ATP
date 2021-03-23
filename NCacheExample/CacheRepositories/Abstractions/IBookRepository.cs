@@ -1,6 +1,6 @@
-﻿namespace CachingSimpleExample.CacheRepositories.Abstractions
+﻿namespace NCacheExample.CacheRepositories.Abstractions
 {
-    using CachingSimpleExample.Models;
+    using NCacheExample.Models;
     using System.Collections.Generic;
 
     public interface IBookRepository
@@ -11,6 +11,6 @@
 
         CrudResult InsertOrUpdateExistingBook(Book book);
 
-        CrudResult RemoveExistingBook(string id);
+        CrudResult RemoveExistingBook(Book book);
     }
 }
