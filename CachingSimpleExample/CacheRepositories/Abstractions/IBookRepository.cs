@@ -3,11 +3,11 @@
     using CachingSimpleExample.Models;
     using System.Collections.Generic;
 
-    public interface IBookRepository
+    public interface IBookRepository<T>
     {
-        CrudResult<List<Book>> GetAllExistingBook();
+        CrudResult<List<T>> GetAllExistingBook();
 
-        CrudResult<Book> GetExistingBook(string id);
+        CrudResult<T> GetExistingBook(string id);
 
         CrudResult InsertOrUpdateExistingBook(Book book);
 

@@ -7,7 +7,7 @@
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
 
-    public class BookRepository : CachingHandler<Book>, IBookRepository
+    public class BookRepository : CachingHandler<Book>, IBookRepository<Book>
     {
         private readonly ILogger logger;
 

@@ -6,9 +6,9 @@
 
     public class BookController : ControllerBase
     {
-        private readonly IBookRepository bookRepository;
+        private readonly IBookRepository<Book> bookRepository;
 
-        public BookController(IBookRepository bookRepository)
+        public BookController(IBookRepository<Book> bookRepository)
         {
             this.bookRepository = bookRepository;
         }

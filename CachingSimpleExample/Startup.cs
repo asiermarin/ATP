@@ -1,20 +1,13 @@
-using CachingSimpleExample.CacheRepositories;
-using CachingSimpleExample.CacheRepositories.Abstractions;
-using CachingSimpleExample.Handlers;
-using CachingSimpleExample.Handlers.Abstractions;
-using CachingSimpleExample.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace CachingSimpleExample
 {
+    using CachingSimpleExample.CacheRepositories;
+    using CachingSimpleExample.CacheRepositories.Abstractions;
+    using CachingSimpleExample.Models;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -25,7 +18,9 @@ namespace CachingSimpleExample
             services.AddMemoryCache();
 
             // services.AddScoped(new CachingHandler<Book>());
-            services.AddSingleton<IBookRepository, BookRepository>();
+            services.AddSingleton<IBookRepository<Book>, BookRepository>();
+            services.AddSingleton<ICarRepository<string, Car>, CarRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
